@@ -1,1 +1,7 @@
-﻿  12213039_박진하_OPP1.vcxproj -> C:\Users\qka01\OneDrive\바탕 화면\OPP1\12213039_박진하_OPP1\x64\Debug\12213039_박진하_OPP1.exe
+﻿  lab11.cpp
+C:\Users\qka01\OneDrive\바탕 화면\OPP1\12213039_박진하_OPP1\12213039_박진하_OPP1\lab11.cpp(576,19): warning C4244: '+=': '_Ty'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\qka01\OneDrive\바탕 화면\OPP1\12213039_박진하_OPP1\12213039_박진하_OPP1\lab11.cpp(576,19): warning C4244:         with
+C:\Users\qka01\OneDrive\바탕 화면\OPP1\12213039_박진하_OPP1\12213039_박진하_OPP1\lab11.cpp(576,19): warning C4244:         [
+C:\Users\qka01\OneDrive\바탕 화면\OPP1\12213039_박진하_OPP1\12213039_박진하_OPP1\lab11.cpp(576,19): warning C4244:             _Ty=double
+C:\Users\qka01\OneDrive\바탕 화면\OPP1\12213039_박진하_OPP1\12213039_박진하_OPP1\lab11.cpp(576,19): warning C4244:         ]
+  12213039_박진하_OPP1.vcxproj -> C:\Users\qka01\OneDrive\바탕 화면\OPP1\12213039_박진하_OPP1\x64\Debug\12213039_박진하_OPP1.exe

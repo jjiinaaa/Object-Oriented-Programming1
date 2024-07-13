@@ -418,4 +418,197 @@ using namespace std;
 //	cout << endl << num << "번째 항은 " << arr[num-1] << "입니다.";
 //}
 
-// Program07
+// Program07 - vector 기능: erase, begin
+//#include <vector>
+//
+//class Athlete {
+//private:
+//	string name;
+//	int age;
+//	double recode;
+//public:
+//	Athlete(string n, int a, double r)
+//		: name{ n }, age{ a }, recode{ r } {};
+//	string getName() {
+//		return name;
+//	}
+//	int getAge() {
+//		return age;
+//	}
+//	double getRecode() {
+//		return recode;
+//	}
+//};
+//
+//int main() {
+//	string name;
+//	int age, num;
+//	double recode;
+//	vector<Athlete> vec;
+//
+//	cout << "선수들의 수를 입력해주세요: ";
+//	cin >> num;
+//	for (int i = 0; i < num; i++) {
+//		cout << "이름과 나이, 기록을 입력해 주세요: ";
+//		cin >> name >> age >> recode;
+//		vec.push_back(Athlete{name, age, recode});
+//	}
+//	cout << endl;
+//	for (int i = 1; i <= 3; i++) {
+//		int N = 0;
+//		double highRecode = 0;
+//		for (int j = 0; j < vec.size(); j++) {
+//			if (vec[j].getRecode() > highRecode) {
+//				N = j;
+//				highRecode = vec[j].getRecode();
+//			}
+//		}
+//		cout << i << "등: " << vec[N].getName() << "(" << vec[N].getAge() << ") 기록: " << vec[N].getRecode() << endl;
+//		vec.erase(vec.begin() + N); // vector 기능: erase, begin
+//	}
+//}
+
+// Program08 - very dificult!!!!!!
+//class Problem {
+//private:
+//	int wrong;
+//	bool correct;
+//	int time;
+//public:
+//	Problem()
+//		: wrong{ 0 }, time{ 0 }, correct{false} {};
+//	void setWrong();
+//	void setCorrect(int t);
+//	int getPenalty();
+//	bool isCorrect();
+//};
+//
+//void Problem::setWrong() {wrong++;};
+//void Problem::setCorrect(int t) {
+//	time = t; 
+//	correct = true;
+//};
+//int Problem::getPenalty() { return wrong * 20 + time; }
+//bool Problem::isCorrect() { return correct; }
+//
+//int main() {
+//	int num, team, problem, time;
+//	string result;
+//	Problem arr[3][7];
+//	cout << "총 제출 수를 입력해 주세요: ";
+//	cin >> num;
+//
+//	for (int i = 0; i < num; i++ ){
+//		cout << "제출 결과를 입력해 주세요(팀/문제/시간/결과): ";
+//		cin >> team >> problem >> time >> result;
+//		if (result == "Wrong") {
+//			arr[team][problem].setWrong();
+//		}
+//		else if (result == "Correct") {
+//			arr[team][problem].setCorrect(time);
+//		}
+//	}
+//	cout << endl;
+//	
+//	int best = -1, pp = -1, bestidx = -1;
+//	for (int i = 0; i < 3; i++) {
+//		int cnt = 0, sumPanelty = 0;
+//			for (int j = 0; j < 7; j++) {
+//				if (arr[i][j].isCorrect()) {
+//					cnt++;
+//				}
+//				sumPanelty += arr[i][j].getPenalty();
+//			}
+//		cout << i << "팀 맞은 문제: " << cnt << "문제 패널티 점수: " << sumPanelty << endl;
+//		if (cnt > best || (cnt == best && pp > sumPanelty)) { // best : 최고 팀 문제 갯수, pp = 최고 팀 패널티
+//			best = cnt;
+//			pp = sumPanelty; // panelty 가 낮아야 함. 들어오는 팀의 panelty가 낮으면 이 조건 만족
+//			bestidx = i;
+//		}
+//	}
+//
+//	cout << "\n우승팀은 " << bestidx << "팀입니다!";
+//}
+
+// Program09
+//#include <vector>
+//int main() {
+//	vector<int> vec;
+//	int n;
+//	do {
+//		cout << "벡터의 크기를 입력하세요 (5 이상 10 이하): ";
+//		cin >> n;
+//	} while (n < 5 || n > 10);
+//	cout << endl;
+//
+//	int num, min = 100, max = 0;
+//	for (int i = 1; i <= n; i++) {
+//		do {
+//			cout << i << "번째 정수를 입력하세요 (0 이상 100 이하): ";
+//			cin >> num;
+//		} while (num < 0 || num > 100);
+//		vec.push_back(num);
+//	}
+//
+//	for (int i = 0; i < n; i++) {
+//		if (min >= vec[i]) {
+//			min = vec[i];
+//		}
+//		if (max <= vec[i]) {
+//			max = vec[i];
+//		}
+//	}
+//	cout << "\n벡터의 최소값: " << min << "\n벡터의 최대값: " << max;
+//}
+
+// Program10
+//#include <array>
+//
+//class GradeCalculator {
+//private:
+//	array<double, 5> scores;
+//public:
+//	GradeCalculator(const array<double, 5>& scores)
+//		: scores{ scores } {};
+//	double calculateAverageScore() {
+//		int sum = 0;
+//		for (int i = 0; i < 5; i++) {
+//			sum += scores[i];
+//		}
+//		return sum / static_cast<double>(5);
+//	};
+//	char calculateGrade() {
+//		double average = calculateAverageScore();
+//		if (average >= 90) {
+//			return 'A';
+//		}
+//		else if (average >= 80) {
+//			return 'B';
+//		}
+//		else if (average >= 70) {
+//			return 'C';
+//		}
+//		else if (average >= 60) {
+//			return 'D';
+//		}
+//		else{
+//			return 'F';
+//		}
+//	};
+//};
+//
+//int main() {
+//	int score;
+//	array<double, 5>  arr;
+//	for (int i = 0; i < 5; i++) {
+//		cout << "Enter score " << i + 1 << ": ";
+//		cin >>  score;
+//		arr[i] = score;
+//	}
+//	GradeCalculator s1{arr};
+//	cout << endl << "Average score: " << s1.calculateAverageScore() << endl << "Grade: " << s1.calculateGrade();
+//}
+
+// Program11
+
+// Program12
