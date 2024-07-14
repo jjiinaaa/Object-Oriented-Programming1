@@ -609,6 +609,204 @@ using namespace std;
 //	cout << endl << "Average score: " << s1.calculateAverageScore() << endl << "Grade: " << s1.calculateGrade();
 //}
 
-// Program11
+// Program11 - 생성자 주의 사항
+//#include <array>
+//class Food {
+//private:
+//	string foodName;
+//	int price, inventory;
+//public:
+//	Food() {}; // Menu에 std:array로 기본 생성자가 선언되었기에 반드시 포함!
+//	Food(string foodName, int price, int inventory); 
+//	int getInventory() const;
+//	int getPrice() const;
+//	string getFoodName() const;
+//};
+//
+//class Menu {
+//private:
+//	array<Food, 10> foods;
+//	int numFoods = 0;
+//public:
+//	Menu() {};
+//	void addFood(const Food& food);
+//	void printMenu();
+//	int findFoodIndex(string foodName) const;
+//	void orderFood(string foodName, int quantity);
+//};
+//
+//Food::Food(string foodName, int price, int inventory)
+//	: foodName{ foodName }, price{ price }, inventory{inventory} {
+//
+//}
+//int Food::getInventory() const{
+//	return inventory;
+//}
+//int Food::getPrice() const{
+//	return price;
+//}
+//string Food::getFoodName() const{
+//	return foodName;
+//}
+//
+//void Menu::addFood(const Food& food) {
+//	foods[numFoods++] = food;
+//}
+//void Menu::printMenu() {
+//	cout << "==== 메뉴 ====" << endl;
+//	for (int i = 0; i < numFoods; i++) {
+//		cout << i + 1 << " "<< foods[i].getFoodName() << " - " << foods[i].getPrice() << "원" << endl;
+//	}
+//	cout << endl;
+//}
+//int Menu::findFoodIndex(string foodName) const {
+//	for (int i = 0; i < numFoods; i++) {
+//		if (foods[i].getFoodName() == foodName)
+//			return i;
+//	}
+//};
+//void Menu::orderFood(string foodName, int quantity) {
+//	for (int i = 0; i < numFoods; i++) {
+//		if (foods[i].getFoodName() != foodName)
+//			cout << "해당 음식이 존재하지 않습니다.";
+//		return;
+//	}
+//	int num = findFoodIndex(foodName);
+//	if (foods[num].getInventory() < quantity) {
+//		cout << "재고가 부족합니다.";
+//	}
+//	else {
+//		cout << foods[num].getFoodName() << " " << quantity << "개 주문 완료! 총 " << quantity * foods[num].getPrice() << "원 결제됩니다.";
+//	};
+//}
+//
+//
+//int main() {
+//	Menu menu;
+//	menu.addFood(Food{"pizza", 15000, 10});
+//	menu.addFood(Food{"burger", 8000, 20});
+//	menu.addFood(Food{"chicken", 18000, 5});
+//	menu.addFood(Food{"pasta", 10000, 15});
+//
+//	menu.printMenu();
+//
+//	string foodName;
+//	int quantity;
+//	cout << "\n주문할 음식과 수량을 입력해주세요. (ex. pizza 2)" << endl;
+//	cin >> foodName >> quantity;
+//
+//	menu.orderFood(foodName, quantity);
+//}
 
-// Program12
+// Program12 - very very difficult ***
+//class TicTacToe {
+//private:
+//	static const int BOARD_SIZE = 3;
+//	char board[BOARD_SIZE][BOARD_SIZE];
+//	int numMoves;
+//public:
+//	TicTacToe()	
+//		: numMoves{ 0 } {
+//		cout << "틱택토 게임을 시작합니다." << endl;
+//		for (int i = 0; i < BOARD_SIZE; i++) {
+//			for (int j = 0; j < BOARD_SIZE; j++) {
+//				board[i][j] = '-';
+//			}
+//		}
+//	};
+//	void printBoard() const {
+//		cout << "현재 보드 상태:" << endl;
+//		for (int i = 0; i < BOARD_SIZE; i++) {
+//			for (int j = 0; j < BOARD_SIZE; j++) {
+//				cout << board[i][j] << " ";
+//			}
+//			cout << endl;
+//		}
+//	}
+//	bool makeMove(int row, int col, char piece) {
+//		if (row > 2 || row < 0 || col > 2 || col < 0) {
+//			cout << "잘못된 선택입니다." << endl;;
+//			return false;
+//		}
+//		if (board[row][col] != '-') {
+//			cout << "이미 놓인 자리입니다." << endl;;
+//			return false;
+//		}
+//		if (board[row][col] == '-') {
+//			board[row][col] = piece;
+//			numMoves++;
+//			return true;
+//		}
+//	}
+//	bool checkWin(char piece) const {
+//		for (int i = 0; i < 3; i++) { // 가로 검사
+//			for (int j = 0; j < 3; j++) {
+//				if (board[i][j] != piece)
+//					break;
+//				if (j == 2 && board[i][j] == piece)
+//					return false;
+//			}
+//		}
+//
+//		for (int i = 0; i < 3; i++) { // 세로 검사
+//			for (int j = 0; j < 3; j++) {
+//				if (board[j][i] != piece)
+//					break;
+//				if (j == 2 && board[j][i] == piece)
+//					return false;
+//			}
+//		}
+//		
+//		// 대각선 검사
+//		if (board[0][0] == piece && board[1][1] == piece && board[2][2] == piece)
+//			return false;
+//		if (board[0][2] == piece && board[1][1] == piece && board[2][0] == piece)
+//			return false;
+//		return true;
+//	}
+//	bool checkDraw() const { // cnt가 9가 되면 false 반환 반복문 탈출
+//		if (numMoves == pow(BOARD_SIZE, 2)) {
+//			return false;
+//		}
+//		return true;
+//	}
+//};
+//
+//int main() {
+//	const char Player1 = 'X';
+//	const char Player2 = 'O';
+//
+//	TicTacToe tic;
+//	int row, col;
+//	char play = Player1;
+//
+//	while (tic.checkWin(Player1) && tic.checkWin(Player2) && tic.checkDraw()) { // 승리 or 9개가 다 차면 true 반환되어 조건문 위배
+//		tic.printBoard();
+//
+//		cout << endl << play << " 플레이어 차례입니다." << endl;
+//		cout << "행 입력(0 ~ 2): ";
+//		cin >> row;
+//		cout << "열 입력(0 ~ 2): ";
+//		cin >> col;
+//		if (!tic.makeMove(row, col, play)) {
+//			continue;
+//		}
+//		if (play == Player1) {
+//			play = Player2;
+//		}
+//		else {
+//			play = Player1;
+//		}
+//	}
+//
+//	cout << "게임 종료!" << endl;
+//	if (!tic.checkWin(Player1)) {
+//		cout << "플레이어 1이 승리하였습니다!";
+//	}
+//	else if (!tic.checkWin(Player2)) {
+//		cout << "플레이어 2가 승리하였습니다!";
+//	}
+//	if (!tic.checkDraw()) {
+//		cout << "무승부";
+//	}
+//}
