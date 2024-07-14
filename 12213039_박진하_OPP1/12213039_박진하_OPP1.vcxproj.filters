@@ -45,6 +45,9 @@
     <ClCompile Include="lab11.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="lab12.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab10Header.h">
